@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isaiahs Commonplace Book</title>
+    <title>Humiliated Book Selections</title>
     <style>
-        /* Apply the animated GIF background for the bookshelf */
         body {
             margin: 0;
             display: flex;
@@ -22,21 +21,20 @@
 
         /* Main header styling */
         .main-header {
-            font-size: 48px; /* Size of the header */
+            font-size: 64px; /* Larger size for emphasis */
             text-align: center; /* Center the header */
-            color: white; /* Changed to white */
-            margin-bottom: 20px; /* Space below the header */
-            font-family: 'Black Chancery'; /* Use one of your fonts */
+            color: white; /* White color */
+            margin-bottom: 40px; /* Space below the header */
+            font-family: 'Canterbury'; /* Use your font */
         }
 
         /* Grid container for books */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 books per row */
-            gap: 10px; /* Reduced gap between books */
-            width: 60vw;  /* Reduce width */
-            height: auto; /* Height auto to accommodate contents */
-            margin: 0 auto; /* Center the container */
+            grid-template-columns: repeat(3, 1fr); /* 3 books in one row */
+            gap: 20px; /* Space between books */
+            width: 50vw;  /* Reduced width for 3 books */
+            margin: 0 auto; /* Center the grid */
             position: relative;
             align-items: center; /* Center items vertically */
             justify-items: center; /* Center items horizontally */
@@ -104,8 +102,8 @@
         .label {
             text-align: center;
             margin-top: 33px; /* Adjusted for spacing */
-            font-size: 12px; /* Adjusted font size */
-            color: white; /* Changed to white */
+            font-size: 14px; /* Adjusted font size */
+            color: white; /* White color for text */
             position: relative; /* Ensure positioning relative to grid item */
             z-index: 2; /* Ensure label is above images */
             width: 100%; /* Full width to accommodate long titles */
@@ -142,7 +140,6 @@
         @media (max-width: 768px) {
             .grid-container {
                 width: 70vw; /* Adjusted width for smaller screens */
-                height: auto; /* Keep height auto for smaller screens */
             }
         }
 
@@ -155,23 +152,23 @@
 </head>
 <body>
 
-    <h1 class="main-header">Isaiah's CommonplaceBook</h1>
+    <h1 class="main-header"><span>Humility</h1>
 
     <div class="grid-container">
-        <a href="pride.html" class="grid-item">
+        <a href="Humility-in-self.html" class="grid-item">
             <div class="static"></div>
             <div class="animated"></div>
-            <div class="label label1">Pride</div>
+            <div class="label label1">Humility in self</div>
         </a>
-        <a href="humility.html" class="grid-item">
+        <a href="Acting-on-Humility.html" class="grid-item">
             <div class="static"></div>
             <div class="animated"></div>
-            <div class="label label2">Humility</div>
+            <div class="label label2">Acting on humility</div>
         </a>
-        <a href="nature.html" class="grid-item">
+        <a href="Humiliated.html" class="grid-item">
             <div class="static"></div>
             <div class="animated"></div>
-            <div class="label label3">Nature</div>
+            <div class="label label3">Humilitated</div>
         </a>
     </div>
 
