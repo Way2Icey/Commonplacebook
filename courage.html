@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courage Book Selections</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Align items vertically */
+            height: 100vh;
+            background-image: url('https://64.media.tumblr.com/c253e0c894134a6d728ae77f32ed98b2/4689fa43d09593aa-07/s1280x1920/ba09cfbc43e42a03fe068d430d1e361c4e60d1f6.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        /* Main header styling */
+        .main-header {
+            font-size: 64px; /* Larger size for emphasis */
+            text-align: center; /* Center the header */
+            color: white; /* White color */
+            margin-bottom: 40px; /* Space below the header */
+            font-family: 'Fenwick Woodtype'; /* Use your font */
+        }
+
+        /* Grid container for books */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 books in one row */
+            gap: 20px; /* Space between books */
+            width: 50vw;  /* Reduced width for 3 books */
+            margin: 0 auto; /* Center the grid */
+            position: relative;
+            align-items: center; /* Center items vertically */
+            justify-items: center; /* Center items horizontally */
+        }
+
+        /* Styling for book placeholders */
+        .grid-item {
+            display: block;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative; /* Position for layering */
+            width: 120px;  /* Set a fixed width */
+            height: 180px; /* Set a fixed height */
+            overflow: hidden; /* Hide overflow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
+        }
+
+        /* Static book image */
+        .grid-item .static {
+            background-image: url('https://pbs.twimg.com/media/DAB0513WAAAIQpd.png'); /* Default book image */
+            background-size: cover; /* Ensure it covers the grid item */
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.3s ease; /* Smooth transition for opacity */
+            position: absolute; /* Position it absolutely */
+            top: 0;
+            left: 0;
+            z-index: 1; /* Ensure it is on top */
+        }
+
+        /* Animated GIF that will be shown on hover */
+        .grid-item .animated {
+            background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3b75b124-8007-4c17-b621-27f1b4420313/d8iri9k-6a408e4d-be79-4ed9-8b38-f99a1bf69d4d.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzNiNzViMTI0LTgwMDctNGMxNy1iNjIxLTI3ZjFiNDQyMDMxM1wvZDhpcmk5ay02YTQwOGU0ZC1iZTc5LTRlZDktOGIzOC1mOTlhMWJmNjlkNGQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.63-ggV3cTpj8nXzhn5l6jGxFiSLVLMbeM5E6hACjrzY'); /* Animated GIF */
+            background-size: cover; /* Ensure it covers the grid item */
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            position: absolute; /* Position it absolutely */
+            top: 0;
+            left: 0;
+            z-index: 0; /* Ensure it is below the static image */
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.3s ease; /* Smooth transition for opacity */
+        }
+
+        /* Show animated GIF on hover */
+        .grid-item:hover .static {
+            opacity: 0; /* Fade out static image */
+        }
+
+        .grid-item:hover .animated {
+            opacity: 1; /* Fade in animated GIF */
+        }
+
+        /* Add hover effect to the grid items */
+        .grid-item:hover {
+            transform: scale(1.1); /* Scale up on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+        }
+
+        /* Labels styling */
+        .label {
+            text-align: center;
+            margin-top: 33px; /* Adjusted for spacing */
+            font-size: 14px; /* Adjusted font size */
+            color: white; /* White color for text */
+            position: relative; /* Ensure positioning relative to grid item */
+            z-index: 2; /* Ensure label is above images */
+            width: 100%; /* Full width to accommodate long titles */
+            display: inline-block; /* Allow the width to be set */
+        }
+
+        /* Font styles */
+        @font-face {
+            font-family: 'Old English Five';
+            src: url('fonts/OldEnglishFive.ttf'); /* Update path */
+        }
+
+        @font-face {
+            font-family: 'Canterbury';
+            src: url('fonts/Canterbury.ttf'); /* Update path */
+        }
+
+        @font-face {
+            font-family: 'Black Chancery';
+            src: url('fonts/BLKCHCRY.TTF'); /* Update path */
+        }
+
+        @font-face {
+            font-family: 'Fenwick Woodtype';
+            src: url('fonts/FenwickWoodtype.ttf'); /* Update path */
+        }
+
+        /* Random font selection for labels */
+        .label1 { font-family: 'Fenwick Woodtype'; }
+        .label2 { font-family: 'Fenwick Woodtype'; }
+        .label3 { font-family: 'Fenwick Woodtype'; }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .grid-container {
+                width: 70vw; /* Adjusted width for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Single column for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="main-header"><span>Courage</h1>
+
+    <div class="grid-container">
+        <a href="Courage-to-Act.html" class="grid-item">
+            <div class="static"></div>
+            <div class="animated"></div>
+            <div class="label label1">Courage to Act</div>
+        </a>
+        <a href="Courage-to-Endure.html" class="grid-item">
+            <div class="static"></div>
+            <div class="animated"></div>
+            <div class="label label2">Courage to Endure</div>
+        </a>
+        <a href="Courage-to-Change.html" class="grid-item">
+            <div class="static"></div>
+            <div class="animated"></div>
+            <div class="label label3">Courage to Change</div>
+        </a>
+    </div>
+
+</body>
+</html>
