@@ -112,7 +112,52 @@
             width: 100%; /* Full width to accommodate long titles */
             display: inline-block; /* Allow the width to be set */
         }
+        
+        .thesis {
+            position: absolute;
+            top: 20px; /* Position it near the top */
+            right: 20px; /* Position it near the right */
+            width: 120px; /* Fixed width */
+            height: 180px; /* Fixed height */
+        }
 
+        .thesis .static {
+            background-image: url('https://pbs.twimg.com/media/DAB0513WAAAIQpd.png'); /* Static book image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .thesis .animated {
+            background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3b75b124-8007-4c17-b621-27f1b4420313/d8iri9k-6a408e4d-be79-4ed9-8b38-f99a1bf69d4d.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzNiNzViMTI0LTgwMDctNGMxNy1iNjIxLTI3ZjFiNDQyMDMxM1wvZDhpcmk5ay02YTQwOGU0ZC1iZTc5LTRlZDktOGIzOC1mOTlhMWJmNjlkNGQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.63-ggV3cTpj8nXzhn5l6jGxFiSLVLMbeM5E6hACjrzY'); /* Animated GIF */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Show animated GIF on hover */
+        .thesis:hover .static {
+            opacity: 0; /* Fade out static image */
+        }
+
+        .thesis:hover .animated {
+            opacity: 1; /* Fade in animated GIF */
+        }
         /* Font styles */
         @font-face {
             font-family: 'Old English Five';
@@ -183,6 +228,11 @@
             <div class="static"></div>
             <div class="animated"></div>
             <div class="label label5">Courage</div>
+        </a>
+        <a href="thesis.html" class="thesis">
+            <div class="static"></div>
+            <div class="animated"></div>
+            <div class="label label1">Thesis</div>
         </a>
     </div>
     
